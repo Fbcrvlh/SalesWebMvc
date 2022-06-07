@@ -8,7 +8,11 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SeedingService>().BuildServiceProvider();
+
+
+
+
 
 var app = builder.Build();
 
@@ -19,6 +23,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+app.Services.CreateScope().ServiceProvider.GetRequiredService<SeedingService>().Seed();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
