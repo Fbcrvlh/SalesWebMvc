@@ -14,7 +14,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<SeedingService>().BuildServiceProvider();
 builder.Services.AddScoped<SellerService>().BuildServiceProvider();
 builder.Services.AddScoped<DepartmentService>().BuildServiceProvider();
-
+builder.Services.AddScoped<SalesRecordServices>().BuildServiceProvider();
 
 
 
