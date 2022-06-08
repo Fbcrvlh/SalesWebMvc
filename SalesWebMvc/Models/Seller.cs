@@ -6,8 +6,12 @@ namespace SalesWebMvc.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Name required")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "Name sizer should be beetween 3 and 60")]
         public string Name { get; set; }
 
+
+        [EmailAddress(ErrorMessage = "Email invalido")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
